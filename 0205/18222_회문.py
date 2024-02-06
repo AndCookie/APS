@@ -8,22 +8,19 @@ for test_case in range(1, T+1):
     # print(my_arr)
 
     result = ''
-    mid = []
-    new_arr = []
+    # 가로 탐색
     for i in range(0, N):
         for j in range(0, N-M+1):
-            mid.append(my_arr[i][j])
-            if my_arr[i][j:j+M] == my_arr[i][j+M-1::-1]:
-                result = my_arr[i][j:j+M]
-            # print(my_arr[i][j])
-    print(mid)
-    new_arr.append(mid)
-    print(new_arr)
+            word = my_arr[i][j:j+M]
+            if word == word[::-1]:
+                result = word
 
-    if not result :
-        for i in range(0, N):
-            for j in range(0, N - M + 1):
-                if mid[i][j:j + M] == mid[i][j + M - 1::-1]:
-                    result = mid[i][j:j + M]
+    # 세로 탐색
+    for z in zip(*my_arr):
+        # print(list(z))
+        for j in range(0, N-M+1):
+            word = z[j:j+M]
+            if word == word[::-1]:
+                result = "".join(word)
 
     print(f'#{test_case} {result}')
