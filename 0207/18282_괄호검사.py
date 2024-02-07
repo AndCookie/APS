@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open('18282_input.txt')
+# import sys
+# sys.stdin = open('18282_input.txt')
 
 T = int(input())
 for test_case in range(1, T+1):
